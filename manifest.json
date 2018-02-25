@@ -1,0 +1,60 @@
+{
+  "name": "ICDT",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Let's you do things you didn't think were possible.",
+  "homepage_url": "https://github.com/mzelmanovich/millstone",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "options_page": "src/options_custom/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "bookmarks",
+    "clipboardRead",
+    "clipboardWrite",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "fileBrowserHandler",
+    "geolocation",
+    "history",
+    "notifications",
+    "tabs",
+    "webRequest"
+  ],
+  "omnibox": {
+    "keyword": "icdt"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
